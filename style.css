@@ -1,0 +1,97 @@
+div#container {
+    position: relative;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(122.7deg, rgb(27, 37, 81) 30.51%, rgb(27, 37, 81) 30.51%);
+}
+
+div#container::before {
+    content: "";
+    position: absolute;
+    inset: 12px 12px 0px;
+    background-image: url(https://dev-fe-be-heroku.com/images/coins/w-bg.svg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+button {
+    padding: 1rem;
+    background-color: blue;
+    border: none;
+    border-radius: 20px;
+    color: white;
+}
+
+#coin {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    margin: 2rem 0rem;
+    transform-style: preserve-3d;
+}
+
+#coin div {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    backface-visibility: hidden;
+    background-size: contain;
+    position: absolute;
+}
+
+.heads {
+    background-image: url(images/heads.svg);
+
+}
+
+.animate-heads {
+    animation: flipHeads 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes flipHeads {
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    50% {
+        transform: rotateX(720deg) scale(2);
+    }
+
+    100% {
+
+        transform: rotateX(1440deg);
+    }
+}
+
+.tails {
+    background-image: url(images/tails.svg);
+    transform: rotateX(-180deg);
+}
+
+.animate-tails {
+    animation: flipTails 3s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes flipTails {
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    50% {
+        transform: rotateX(900deg) scale(2);
+    }
+
+    100% {
+
+        transform: rotateX(1440deg);
+    }
+}
